@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style1.css">
 </head>
+
 <body>
     <header>
         <div class="logo">Audiora</div>
@@ -32,17 +34,92 @@
             <h3>Book Title</h3>
             <p>author name</p>
         </div>
+        <div class="book-card">
+            <img src="https://via.placeholder.com/150x200" alt="Book Cover">
+            <h3>Book Title</h3>
+            <p>author name</p>
+        </div>
+        <div class="book-card">
+            <img src="https://via.placeholder.com/150x200" alt="Book Cover">
+            <h3>Book Title</h3>
+            <p>author name</p>
+        </div>
+        <div class="book-card">
+            <img src="https://via.placeholder.com/150x200" alt="Book Cover">
+            <h3>Book Title</h3>
+            <p>author name</p>
+        </div>
+        <div class="book-card">
+            <img src="https://via.placeholder.com/150x200" alt="Book Cover">
+            <h3>Book Title</h3>
+            <p>author name</p>
+        </div>
+        <div class="book-card">
+            <img src="https://via.placeholder.com/150x200" alt="Book Cover">
+            <h3>Book Title</h3>
+            <p>author name</p>
+        </div>
+        <div class="book-card">
+            <img src="https://via.placeholder.com/150x200" alt="Book Cover">
+            <h3>Book Title</h3>
+            <p>author name</p>
+        </div>
+        <div class="book-card">
+            <img src="https://via.placeholder.com/150x200" alt="Book Cover">
+            <h3>Book Title</h3>
+            <p>author name</p>
+        </div>
+        <div class="book-card">
+            <img src="https://via.placeholder.com/150x200" alt="Book Cover">
+            <h3>Book Title</h3>
+            <p>author name</p>
+        </div>
+        <div class="book-card">
+            <img src="https://via.placeholder.com/150x200" alt="Book Cover">
+            <h3>Book Title</h3>
+            <p>author name</p>
+        </div>
+        <div class="book-card">
+            <img src="https://via.placeholder.com/150x200" alt="Book Cover">
+            <h3>Book Title</h3>
+            <p>author name</p>
+        </div>
+        <div class="book-card">
+            <img src="https://via.placeholder.com/150x200" alt="Book Cover">
+            <h3>Book Title</h3>
+            <p>author name</p>
+        </div>
+        <div class="book-card">
+            <img src="https://via.placeholder.com/150x200" alt="Book Cover">
+            <h3>Book Title</h3>
+            <p>author name</p>
+        </div>
     </main>
     <!-- miniplayer -->
-    <footer>
-        <div class="player-info">
-            <strong>Now playing: </strong> Sample Audiobook
+    <footer id="miniplayer">
+        <div class="player-bar">
+            <div class="player-info">
+                <strong>Now Playing:</strong> Sample Audiobook
+            </div>
+            <div class="player-controls">
+                <button>⏮</button>
+                <button id="play-btn">▶</button>
+                <button>⏭</button>
+            </div>
         </div>
-        <div class="player-controls">
-            <button>⏮</button>
-            <button>▶</button>
-            <button>⏭</button>
+        <!-- Expanded player (hidden by default) -->
+        <div class="player-expanded">
+            <h3>Sample Audiobook</h3>
+            <p>Chapter 1: Introduction</p>
+            <audio controls style="width: 100%;">
+                <source src="sample.mp3" type="audio/mpeg">
+                Your browser does not support audio.
+            </audio>
+            <button id="close-btn">Close</button>
         </div>
     </footer>
+
+    <script src="script1.js"></script>
 </body>
+
 </html>

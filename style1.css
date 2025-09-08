@@ -43,10 +43,35 @@ main {
     /*shorthand for flex-grow: 1; flex-shrink: 1; flex-basis: 0;. basically, take up all the space in the flex container*/
     padding: 2rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
     /*repeat(auto-fill, …) → fill the row with as many columns as will fit.
 minmax(180px, 1fr) → each card should be at least 180px wide, but can grow to share remaining space.*/
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
+    align-items: stretch;
+    /* makes all cards in a row equal height */
+    padding: 2rem;
+    padding-bottom: 80px;
+    /* extra space so books don’t hide under footer */
+}
+
+/* media queries for different devices */
+/* tablets */
+@media(max-width:900px) {
+
+    /*max-width basically applies css when the screen is under 900px*/
+    main {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* mobiles */
+@media(max-width:600px) {
+
+    /*max-width basically applies css when the screen is under 600px*/
+    main {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 .book-card {
@@ -56,6 +81,7 @@ minmax(180px, 1fr) → each card should be at least 180px wide, but can grow to 
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
+    min-height: 280px;
 }
 
 .book-card:hover {
@@ -67,15 +93,100 @@ minmax(180px, 1fr) → each card should be at least 180px wide, but can grow to 
     border-radius: 8px;
 }
 
+
+/* miniplayer */
 footer {
+    position: fixed;
+    /* Sticks to a fixed spot on the screen */
+    bottom: 0;
+    /* Position at the very bottom */
+    left: 0;
+    /* Start from the left edge */
+    width: 100%;
+    /* Stretch across the screen */
     background: #111;
     color: white;
     padding: 1rem;
     display: flex;
     justify-content: space-between;
-    /*this adds space between the items. This aligns items along the main axis (row for flexbox).*/
     align-items: center;
+    z-index: 1000;
+    transition: all 0.3s ease;
 }
+
+/* Compact bar (default mobile view) */
+.player-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+}
+
+/* Expanded player (hidden by default) */
+.player-expanded {
+    display: none;
+    padding: 1rem;
+    /* margin: 1rem; */
+    background: #222;
+    color: white;
+
+}
+
+/* When footer has "expanded" class */
+footer.expanded {
+    height: 50%;
+    /* takes half the screen */
+}
+
+footer.expanded .player-expanded {
+    display: block;
+}
+
+footer.expanded .player-bar {
+    display: none;
+    /* hide compact bar */
+}
+
+
+/* Mobile look */
+@media (max-width: 600px) {
+    footer {
+        width: 100%;
+        border-radius: 20px 20px 0 0;
+    }
+}
+
+@media (max-width: 600px) {
+    footer {
+        width: 90%;
+        /* make it smaller */
+        left: 50%;
+        /* center it horizontally */
+        transform: translateX(-50%);
+        /* adjust centering */
+        border-radius: 30px;
+        /* rounded bar look */
+        padding: 0.5rem 1rem;
+        /* less padding */
+        justify-content: center;
+        /* center everything */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .player-info {
+        display: none;
+        /* hide "Now Playing" text on mobile */
+    }
+
+    .player-controls button {
+        font-size: 1.5rem;
+        /* make icons bigger */
+        margin: 0 0.3rem;
+        /* tighter spacing */
+    }
+}
+
 
 .player-controls button {
     background: none;
@@ -83,5 +194,6 @@ footer {
     color: white;
     font-size: 1.2rem;
     margin: 0 0.5rem;
-    cursor: pointer; /*this means that when the user is hovering over the buttons, the cursor will change to a pointer*/
+    cursor: pointer;
+    /*this means that when the user is hovering over the buttons, the cursor will change to a pointer*/
 }
